@@ -16,8 +16,9 @@ class Lista {
   // método para adicionar as informações do Local Storage no array
   montaArray() {
     //verifica se existe algo no local storage
-
     // atualiza array usar JSON.parse
+
+
   }
 
   // ------ EXECUTA ESSA FUNÇÃO AO DISPARAR O EVENTO DE DOMContentLoaded -------------
@@ -25,11 +26,16 @@ class Lista {
   // método para montar a lista fazendo o loop entre os dados do array
   montaLista() {
     // loop com os dados do array e atualiza html
-    if (localStorage.getItem('produtos')) {
-      console.log('localstorage tem produtos')
-    } else {
-      console.log('nao existem produtos no localstorage')
-    }
+    let conteudo = ''
+    this.arrayDeItens.forEach(item => {
+      conteudo += `
+      <li>
+        <span>${item}</span>
+        <button class="deletar">deletar</button>
+      </li>
+      `
+    })
+    this.listaDeCompras.innerHTML = conteudo;
   }
 
   // ------ EXECUTA ESSA FUNÇÃO AO DISPARAR O EVENTO DE Click no botão adicionar -----
