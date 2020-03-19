@@ -33,7 +33,7 @@ class Lista {
   }
 
   deletarItemDaLista(event) {
-    const itemDeletado = event.target.previousSibling.previousSibling
+    const itemDeletado = event.target.previousSibling.previousSibling.innerText
     if (event.target.classList.contains('deletar')) {
       if (confirm("Tem certeza?")) {
         event.target.parentElement.remove()
@@ -48,10 +48,9 @@ class Lista {
     }
   }
 
-  deletarLista() {
-    botaoDeletar.addEventListener("click", () => {
+  deletarLista() { 
       localStorage.clear()
       this.listaDeCompras.innerHTML = ''
-    })
+      this.arrayDeItens = []
+    }
   }
-}
