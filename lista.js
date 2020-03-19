@@ -7,10 +7,16 @@ class Lista {
     this.arrayDeItens = [];
   }
 
+  // window.addEventListener("DOMContentLoaded", () => {
+  //   montaArray()
+  //   montaLista()
+  // })
+
   // ------ EXECUTA ESSA FUNÇÃO AO DISPARAR O EVENTO DE DOMContentLoaded -----
   // método para adicionar as informações do Local Storage no array
   montaArray() {
     //verifica se existe algo no local storage
+
     // atualiza array usar JSON.parse
   }
 
@@ -19,12 +25,19 @@ class Lista {
   // método para montar a lista fazendo o loop entre os dados do array
   montaLista() {
     // loop com os dados do array e atualiza html
+    if (localStorage.getItem('produtos')) {
+      console.log('localstorage tem produtos')
+    } else {
+      console.log('nao existem produtos no localstorage')
+    }
   }
 
   // ------ EXECUTA ESSA FUNÇÃO AO DISPARAR O EVENTO DE Click no botão adicionar -----
   // metodo para adicionar itens no arrayDeItens e no local storage
   adicionaItem(item) {
-    // adiciona no array e no local storage usar JSON.stringify
+    this.arrayDeItens.push(item)
+    const arrayJSON = JSON.stringify(this.arrayDeItens)
+    localStorage.setItem("produtos", arrayJSON)
   }
 
   // ------ EXECUTA ESSA FUNÇÃO AO DISPARAR O EVENTO DE Click no botão deletar em cada item da lista -----
