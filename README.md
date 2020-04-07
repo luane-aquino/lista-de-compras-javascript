@@ -1,4 +1,4 @@
-# Lista de compras
+# Shopping list
 
 A simple shopping list using Javascript. It uses browser's local storage to store and consume data.
 
